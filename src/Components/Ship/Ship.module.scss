@@ -1,0 +1,11 @@
+.tile {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #111;
+  
+  cursor: pointer;
+}
+.ship {
+  display: flex;
+  margin: 1px;
+}

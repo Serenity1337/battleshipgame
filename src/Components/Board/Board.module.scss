@@ -1,0 +1,26 @@
+.boardContainer {
+  display: flex;
+}
+.boardTile {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #111;
+  padding: 1px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.board {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.shipTile {
+  width: 32px;
+  height: 32px;
+  background-color: #111;
+  padding: 1px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+}
