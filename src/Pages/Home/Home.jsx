@@ -2,22 +2,23 @@ import React, { useState } from 'react'
 import Board from '../../Components/Board'
 import classes from './Home.module.scss'
 import Ship from '../../Components/Ship'
+import { Navigate } from 'react-router'
 
-export const Home = () => {
+export const Home = ({ ships, setShips }) => {
   const [shipPart, setShipPart] = useState(null)
+  const [canPlay, setCanPlay] = useState(false)
   const [currentShip, setCurrentShip] = useState(null)
-  const [ships, setShips] = useState([
-    { title: 'destroyer-1', size: 1, tiles: [] },
-    { title: 'destroyer-2', size: 1, tiles: [] },
-    { title: 'destroyer-3', size: 1, tiles: [] },
-    { title: 'destroyer-4', size: 1, tiles: [] },
-    { title: 'submarine-1', size: 2, tiles: [] },
-    { title: 'submarine-2', size: 2, tiles: [] },
-    { title: 'submarine-3', size: 2, tiles: [] },
-    { title: 'cruiser-1', size: 3, tiles: [] },
-    { title: 'cruiser-2', size: 3, tiles: [] },
-    { title: 'battleship', size: 4, tiles: [] },
-  ])
+
+  const goToGame = () => {
+    let canPlayBool = true
+    ships.forEach((ship) => {
+      if (ship.tiles.length === 0) {
+        canPlayBool = false
+        return
+      }
+    })
+    setCanPlay(canPlayBool)
+  }
   return (
     <div className={classes.container}>
       <div className={classes.shipContainer}>
@@ -36,6 +37,12 @@ export const Home = () => {
         setShips={setShips}
         ships={ships}
       />
+      <div className={classes.menu}>
+        <button type='button' onClick={goToGame} className={classes.playBtn}>
+          Play
+        </button>
+      </div>
+      {canPlay ? <Navigate to='/matchmaking' /> : null}
     </div>
   )
 }

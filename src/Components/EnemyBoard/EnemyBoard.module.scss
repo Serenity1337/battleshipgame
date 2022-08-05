@@ -25,3 +25,21 @@
   box-sizing: border-box;
   border: 1px solid #fff;
 }
+.destroyedTile {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #111;
+  padding: 1px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: red;
+}
+.missedTile {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #111;
+  padding: 1px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: blue;
+}
